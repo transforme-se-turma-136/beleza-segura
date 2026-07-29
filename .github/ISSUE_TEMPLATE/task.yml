@@ -1,0 +1,38 @@
+name: Tarefa
+description: Registre uma atividade da turma
+title: "[TASK] "
+labels: ["tarefa", "triagem"]
+body:
+  - type: textarea
+    id: objetivo
+    attributes:
+      label: Objetivo da tarefa
+    validations:
+      required: true
+  - type: dropdown
+    id: frente
+    attributes:
+      label: Frente responsável
+      options:
+        - Gestão e documentação
+        - Produto e requisitos
+        - Pesquisa e conteúdo
+        - Design UI/UX
+        - Frontend
+        - Backend
+        - Banco de dados
+        - Testes e qualidade
+        - Comunicação e apresentação
+    validations:
+      required: true
+  - type: textarea
+    id: entrega
+    attributes:
+      label: Entrega esperada
+    validations:
+      required: true
+  - type: input
+    id: prazo
+    attributes:
+      label: Prazo
+      placeholder: DD/MM/AAAA

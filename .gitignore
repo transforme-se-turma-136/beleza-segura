@@ -1,0 +1,37 @@
+# Variáveis de ambiente e segredos
+.env
+.env.*
+!.env.example
+
+# Dependências
+node_modules/
+vendor/
+.venv/
+venv/
+
+# Builds e cobertura
+dist/
+build/
+coverage/
+.next/
+.nuxt/
+
+# Logs
+*.log
+logs/
+
+# Bancos e arquivos locais
+*.sqlite
+*.sqlite3
+*.db
+
+# IDE e sistema operacional
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Arquivos temporários
+tmp/
+temp/
+*.tmp

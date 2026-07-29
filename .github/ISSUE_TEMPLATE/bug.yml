@@ -1,0 +1,46 @@
+name: Relatar erro
+description: Informe um problema encontrado no projeto
+title: "[BUG] "
+labels: ["bug", "triagem"]
+body:
+  - type: textarea
+    id: descricao
+    attributes:
+      label: Descrição
+      description: Explique o erro de forma clara.
+    validations:
+      required: true
+  - type: textarea
+    id: passos
+    attributes:
+      label: Passos para reproduzir
+      placeholder: |
+        1. Acesse...
+        2. Clique...
+        3. Observe...
+    validations:
+      required: true
+  - type: textarea
+    id: esperado
+    attributes:
+      label: Resultado esperado
+    validations:
+      required: true
+  - type: textarea
+    id: evidencias
+    attributes:
+      label: Evidências
+      description: Inclua imagens, vídeos ou mensagens de erro.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Área
+      options:
+        - Frontend
+        - Backend
+        - Banco de dados
+        - Design
+        - Documentação
+        - Outra
+    validations:
+      required: true

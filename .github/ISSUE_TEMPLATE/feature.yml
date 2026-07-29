@@ -1,0 +1,37 @@
+name: Nova funcionalidade
+description: Proponha uma melhoria ou funcionalidade
+title: "[FEATURE] "
+labels: ["melhoria", "triagem"]
+body:
+  - type: textarea
+    id: problema
+    attributes:
+      label: Problema ou necessidade
+      description: Qual problema esta proposta resolve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposta
+    attributes:
+      label: Solução proposta
+    validations:
+      required: true
+  - type: textarea
+    id: criterios
+    attributes:
+      label: Critérios de aceitação
+      placeholder: |
+        - [ ] Critério 1
+        - [ ] Critério 2
+    validations:
+      required: true
+  - type: dropdown
+    id: prioridade
+    attributes:
+      label: Prioridade sugerida
+      options:
+        - Essencial para o MVP
+        - Importante
+        - Melhoria futura
+    validations:
+      required: true

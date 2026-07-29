@@ -1,0 +1,10 @@
+# Renomeie este arquivo para CODEOWNERS depois de criar os times na organização.
+# Substitua "transforme-se-turma-136" caso a organização use outro nome.
+
+* @transforme-se-turma-136/mantenedores
+/docs/ @transforme-se-turma-136/gestao-documentacao
+/design/ @transforme-se-turma-136/design
+/frontend/ @transforme-se-turma-136/frontend
+/backend/ @transforme-se-turma-136/backend
+/database/ @transforme-se-turma-136/backend
+/tests/ @transforme-se-turma-136/qa
