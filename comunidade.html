@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beleza Segura - Comunidade</title>
+    <!-- Ícones Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- FontAwesome para ícones complementares -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="comunidade.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Top Bar / Navbar Web -->
+
+<header class="top-bar fade-in-down">
+  <div class="top-bar-left">
+    <button id="openMenuBtn" class="icon-btn" aria-label="Abrir Menu">
+      <i data-lucide="menu"></i>
+    </button>
+    <div class="logo">
+      <img src="Logo.png" alt="Logo Beleza Segura" width="38" height="38" style="object-fit: contain;">
+      <span class="logo-text">Beleza Segura</span>
+    </div>
+  </div>
+
+  <div class="search-container">
+    <i data-lucide="search" class="search-icon"></i>
+    <input type="text" placeholder="Encontre maquiagens, roupas e mais..." class="search-input">
+  </div>
+
+  <div class="top-bar-right">
+    <nav class="web-nav">
+      <a href="landpage.html" class="nav-item" aria-label="Início" title="Início">
+        <span class="nav-icon"><i data-lucide="shopping-bag"></i></span>
+        <span class="nav-label">Início</span>
+      </a>
+      <a href="verificador.html" class="nav-item" aria-label="Verificador" title="Verificador">
+        <span class="nav-icon"><i data-lucide="shield-check"></i></span>
+        <span class="nav-label">Verificador</span>
+      </a>
+      <a href="comunidade.html" class="nav-item active" aria-label="Comunidade" title="Comunidade">
+        <span class="nav-icon"><i data-lucide="users"></i></span>
+        <span class="nav-label">Comunidade</span>
+      </a>
+      <a href="cupom.html" class="nav-item" aria-label="Cupons" title="Cupons">
+        <span class="nav-icon"><i data-lucide="ticket"></i></span>
+        <span class="nav-label">Cupons</span>
+      </a>
+      <a href="blog.html" class="nav-item" aria-label="Blog" title="Blog">
+        <span class="nav-icon"><i data-lucide="book-open"></i></span>
+        <span class="nav-label">Blog</span>
+      </a>
+      <a href="LandpagePerfil.html" class="nav-item" aria-label="Perfil" title="Perfil">
+        <span class="nav-icon"><i data-lucide="user"></i></span>
+        <span class="nav-label">Perfil</span>
+      </a>
+    </nav>
+
+    <button class="icon-btn notification-btn" aria-label="Notificações">
+      <i data-lucide="bell"></i>
+    </button>
+  </div>
+</header>
+
+    <!-- Conteúdo Principal da Comunidade -->
+    <main class="main-content">
+      
+      <!-- Cabeçalho com Saudação Baseado na Imagem -->
+      <div class="community-header">
+        <div class="user-greeting">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150" alt="Avatar Beatriz" class="user-avatar">
+          <div class="greeting-text">
+            <span class="welcome-text">Bem-vinda de volta</span>
+            <h1 class="user-name">Beatriz Ramos</h1>
+          </div>
+        </div>
+        <button class="btn-novo-topico" id="openModalBtn">
+          <i data-lucide="plus"></i> Novo Tópico
+        </button>
+      </div>
+
+      <!-- Carrossel de alertas e dicas da comunidade -->
+      <section class="scam-alert-banner" aria-label="Destaques da comunidade">
+        <div class="scam-carousel-track" id="scamCarouselTrack">
+          <article class="scam-slide active">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=1200" alt="Pessoa fazendo compra segura online">
+            <div class="scam-slide-overlay">
+              <span class="scam-slide-kicker">Alerta da comunidade</span>
+              <h2>Comprou online? Confira antes de pagar.</h2>
+              <p>Veja dicas para identificar lojas confiáveis e evitar golpes.</p>
+            </div>
+          </article>
+          <article class="scam-slide">
+            <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&q=80&w=1200" alt="Cartão usado em uma compra segura">
+            <div class="scam-slide-overlay">
+              <span class="scam-slide-kicker">Dica de segurança</span>
+              <h2>Desconfie de preços bons demais.</h2>
+              <p>Compare avaliações, endereço e formas de pagamento.</p>
+            </div>
+          </article>
+          <article class="scam-slide">
+            <img src="https://images.unsplash.com/photo-1556742111-a301076d9d18?auto=format&fit=crop&q=80&w=1200" alt="Pessoa conferindo uma compra no celular">
+            <div class="scam-slide-overlay">
+              <span class="scam-slide-kicker">Fique de olho</span>
+              <h2>Proteja seus dados e sua beleza.</h2>
+              <p>Compartilhe experiências e ajude a comunidade a comprar melhor.</p>
+            </div>
+          </article>
+        </div>
+        <button class="scam-carousel-arrow scam-carousel-prev" type="button" aria-label="Destaque anterior">‹</button>
+        <button class="scam-carousel-arrow scam-carousel-next" type="button" aria-label="Próximo destaque">›</button>
+        <div class="scam-carousel-dots" aria-label="Navegação do carrossel">
+          <button class="scam-dot active" type="button" aria-label="Mostrar destaque 1"></button>
+          <button class="scam-dot" type="button" aria-label="Mostrar destaque 2"></button>
+          <button class="scam-dot" type="button" aria-label="Mostrar destaque 3"></button>
+        </div>
+      </section>
+
+      <!-- Filtros de Conversa (Ajustados conforme a imagem e os ícones do projeto) -->
+      <div class="filters-container">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="alerta"><i class="fa-solid fa-triangle-exclamation"></i> Alertas</button>
+        <button class="filter-btn" data-filter="dica"><i class="fa-solid fa-lightbulb"></i> Dicas</button>
+        <button class="filter-btn" data-filter="duvida"><i class="fa-solid fa-circle-question"></i> Dúvidas</button>
+        <button class="filter-btn" data-filter="resenha"><i class="fa-solid fa-star"></i> Resenhas</button>
+      </div>
+
+      <!-- Layout do Fórum / Chat Feed -->
+      <div class="community-feed" id="communityFeed">
+
+        <!-- Post 1: Alerta -->
+        <article class="post-card" data-category="alerta">
+          <div class="post-avatar">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="Avatar">
+          </div>
+          <div class="post-content">
+            <div class="post-meta">
+              <span class="user-name">Camila Souza</span>
+              <span class="post-time">Há 25 minutos</span>
+              <span class="badge alerta"><i class="fa-solid fa-triangle-exclamation"></i> Alerta</span>
+            </div>
+            <h3 class="post-title">Cuidado com protetor solar falsificado circulando em marketplaces!</h3>
+            <p class="post-text">Comprei recentemente em uma lojinha de terceiros e a textura estava completamente líquida e com cheiro forte de álcool. Fiquem de olho e comprem apenas de lojas oficiais.</p>
+            <div class="post-actions">
+              <button class="action-btn like-btn" onclick="toggleLike(this)">
+                <i class="fa-regular fa-heart"></i> <span>42</span>
+              </button>
+              <button class="action-btn comment-trigger" onclick="toggleComments(this)">
+                <i class="fa-regular fa-comment"></i> <span>8 comentários</span>
+              </button>
+            </div>
+
+            <!-- Seção de Comentários Oculta/Expansível -->
+            <div class="comments-section" style="display: none;">
+              <div class="comment-list">
+                <div class="comment-item">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="User">
+                  <div class="comment-bubble">
+                    <strong>Lucas Mendes</strong>
+                    <p>Nossa, muito obrigado pelo aviso! Quase comprei nessa mesma loja semana passada.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="comment-input-box">
+                <input type="text" placeholder="Escreva um comentário...">
+                <button><i data-lucide="send"></i></button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Post 2: Dica -->
+        <article class="post-card" data-category="dica">
+          <div class="post-avatar">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80" alt="Avatar">
+          </div>
+          <div class="post-content">
+            <div class="post-meta">
+              <span class="user-name">Mariana Lima</span>
+              <span class="post-time">Há 2 horas</span>
+              <span class="badge dica"><i class="fa-solid fa-lightbulb"></i> Dica</span>
+            </div>
+            <h3 class="post-title">Como testar se o seu ácido hialurônico é original em casa</h3>
+            <p class="post-text">Gente, descobri uma forma simples de verificar a viscosidade e absorção inicial usando um pouco de água limpa no dorso da mão. O original da marca X absorve super rápido sem deixar aspecto grudento.</p>
+            <div class="post-actions">
+              <button class="action-btn like-btn" onclick="toggleLike(this)">
+                <i class="fa-regular fa-heart"></i> <span>128</span>
+              </button>
+              <button class="action-btn comment-trigger" onclick="toggleComments(this)">
+                <i class="fa-regular fa-comment"></i> <span>15 comentários</span>
+              </button>
+            </div>
+
+            <div class="comments-section" style="display: none;">
+              <div class="comment-list"></div>
+              <div class="comment-input-box">
+                <input type="text" placeholder="Escreva um comentário...">
+                <button><i data-lucide="send"></i></button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Post 3: Dúvida -->
+        <article class="post-card" data-category="duvida">
+          <div class="post-avatar">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80" alt="Avatar">
+          </div>
+          <div class="post-content">
+            <div class="post-meta">
+              <span class="user-name">Matheus Ribeiro</span>
+              <span class="post-time">Há 5 horas</span>
+              <span class="badge duvida"><i class="fa-solid fa-circle-question"></i> Dúvida</span>
+            </div>
+            <h3 class="post-title">Alguém já usou o verificador de ingredientes para peles acneicas?</h3>
+            <p class="post-text">Comprei um hidratante novo mas tô na dúvida se alguns componentes da fórmula podem obstruir os poros. Alguém tem experiência com esse tipo de análise?</p>
+            <div class="post-actions">
+              <button class="action-btn like-btn" onclick="toggleLike(this)">
+                <i class="fa-regular fa-heart"></i> <span>19</span>
+              </button>
+              <button class="action-btn comment-trigger" onclick="toggleComments(this)">
+                <i class="fa-regular fa-comment"></i> <span>3 comentários</span>
+              </button>
+            </div>
+
+            <div class="comments-section" style="display: none;">
+              <div class="comment-list"></div>
+              <div class="comment-input-box">
+                <input type="text" placeholder="Escreva um comentário...">
+                <button><i data-lucide="send"></i></button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal para Criar Novo Tópico -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2>Criar Novo Tópico</h2>
+        <button class="close-modal" id="closeModalBtn"><i data-lucide="x"></i></button>
+      </div>
+      <form id="newTopicForm">
+        <div class="form-group">
+          <label for="topicCategory">Categoria</label>
+          <select id="topicCategory" required>
+            <option value="alerta">🚨 Alerta</option>
+            <option value="dica">💡 Dica</option>
+            <option value="duvida">❓ Dúvida</option>
+            <option value="resenha">⭐ Resenha</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="topicTitle">Título</label>
+          <input type="text" id="topicTitle" placeholder="Resumo do seu tópico..." required>
+        </div>
+        <div class="form-group">
+          <label for="topicContent">Mensagem</label>
+          <textarea id="topicContent" rows="4" placeholder="Escreva os detalhes aqui..." required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Publicar na Comunidade</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    // Carrossel de destaques: troca automática a cada 5 segundos.
+    const scamSlides = document.querySelectorAll('.scam-slide');
+    const scamDots = document.querySelectorAll('.scam-dot');
+    const scamCarouselTrack = document.getElementById('scamCarouselTrack');
+    const scamPrevButton = document.querySelector('.scam-carousel-prev');
+    const scamNextButton = document.querySelector('.scam-carousel-next');
+    let scamCurrentSlide = 0;
+
+    function showScamSlide(index) {
+      scamCurrentSlide = (index + scamSlides.length) % scamSlides.length;
+      scamCarouselTrack.style.transform = `translateX(-${scamCurrentSlide * 100}%)`;
+      scamSlides.forEach((slide, slideIndex) => {
+        slide.classList.toggle('active', slideIndex === scamCurrentSlide);
+      });
+      scamDots.forEach((dot, dotIndex) => {
+        dot.classList.toggle('active', dotIndex === scamCurrentSlide);
+      });
+    }
+
+    scamPrevButton.addEventListener('click', () => showScamSlide(scamCurrentSlide - 1));
+    scamNextButton.addEventListener('click', () => showScamSlide(scamCurrentSlide + 1));
+
+    scamDots.forEach((dot, index) => {
+      dot.addEventListener('click', () => showScamSlide(index));
+    });
+
+    setInterval(() => {
+      showScamSlide((scamCurrentSlide + 1) % scamSlides.length);
+    }, 5000);
+
+    // Filtros de Categoria
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const posts = document.querySelectorAll('.post-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+
+        posts.forEach(post => {
+          if (filter === 'all' || post.getAttribute('data-category') === filter) {
+            post.style.display = 'flex';
+          } else {
+            post.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Curtir Post
+    function toggleLike(button) {
+      const icon = button.querySelector('i');
+      const span = button.querySelector('span');
+      let count = parseInt(span.textContent);
+
+      if (icon.classList.contains('fa-regular')) {
+        icon.classList.remove('fa-regular');
+        icon.classList.add('fa-solid', 'liked');
+        span.textContent = count + 1;
+      } else {
+        icon.classList.remove('fa-solid', 'liked');
+        icon.classList.add('fa-regular');
+        span.textContent = count - 1;
+      }
+    }
+
+    // Expandir/recolher Comentários
+    function toggleComments(button) {
+      const postCard = button.closest('.post-card');
+      const commentsSection = postCard.querySelector('.comments-section');
+      if (commentsSection.style.display === 'none') {
+        commentsSection.style.display = 'block';
+      } else {
+        commentsSection.style.display = 'none';
+      }
+    }
+
+    // Modal Nova Publicação
+    const modalOverlay = document.getElementById('modalOverlay');
+    const openModalBtn = document.getElementById('openModalBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const newTopicForm = document.getElementById('newTopicForm');
+    const communityFeed = document.getElementById('communityFeed');
+
+    openModalBtn.addEventListener('click', () => {
+      modalOverlay.classList.add('active');
+    });
+
+    closeModalBtn.addEventListener('click', () => {
+      modalOverlay.classList.remove('active');
+    });
+
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) {
+        modalOverlay.classList.remove('active');
+      }
+    });
+
+    // Envio de novo tópico dinamicamente
+    newTopicForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const category = document.getElementById('topicCategory').value;
+      const title = document.getElementById('topicTitle').value;
+      const content = document.getElementById('topicContent').value;
+
+      let badgeIcon = 'fa-solid fa-lightbulb';
+      let badgeLabel = 'Dica';
+      if(category === 'alerta') { badgeIcon = 'fa-solid fa-triangle-exclamation'; badgeLabel = 'Alerta'; }
+      if(category === 'duvida') { badgeIcon = 'fa-solid fa-circle-question'; badgeLabel = 'Dúvida'; }
+      if(category === 'resenha') { badgeIcon = 'fa-solid fa-star'; badgeLabel = 'Resenha'; }
+
+      const newPostHTML = `
+        <article class="post-card" data-category="${category}">
+          <div class="post-avatar">
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80" alt="Avatar">
+          </div>
+          <div class="post-content">
+            <div class="post-meta">
+              <span class="user-name">Você</span>
+              <span class="post-time">Agora mesmo</span>
+              <span class="badge ${category}"><i class="${badgeIcon}"></i> ${badgeLabel}</span>
+            </div>
+            <h3 class="post-title">${title}</h3>
+            <p class="post-text">${content}</p>
+            <div class="post-actions">
+              <button class="action-btn like-btn" onclick="toggleLike(this)">
+                <i class="fa-regular fa-heart"></i> <span>0</span>
+              </button>
+              <button class="action-btn comment-trigger" onclick="toggleComments(this)">
+                <i class="fa-regular fa-comment"></i> <span>0 comentários</span>
+              </button>
+            </div>
+            <div class="comments-section" style="display: none;">
+              <div class="comment-list"></div>
+              <div class="comment-input-box">
+                <input type="text" placeholder="Escreva um comentário...">
+                <button><i data-lucide="send"></i></button>
+              </div>
+            </div>
+          </div>
+        </article>
+      `;
+
+      communityFeed.insertAdjacentHTML('afterbegin', newPostHTML);
+      lucide.createIcons();
+      newTopicForm.reset();
+      modalOverlay.classList.remove('active');
+    });
+
+    // Simulação de Busca instantânea
+    const searchInput = document.querySelector('.search-input');
+    if(searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const term = e.target.value.toLowerCase();
+        posts.forEach(post => {
+          const text = post.innerText.toLowerCase();
+          if (text.includes(term)) {
+            post.style.display = 'flex';
+          } else {
+            post.style.display = 'none';
+          }
+        });
+      });
+    }
+  </script>
+</body>
+</html>

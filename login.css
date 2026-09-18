@@ -1,0 +1,471 @@
+/* PALETA EXTRAÍDA DO SEU ARQUIVO */
+:root {
+  --primary: #c66f7d;
+  --primary-btn: #a84f60;
+  --secondary: #8c4653;
+  --soft: #fce8eb;
+  --bg-main: #fff9f8;
+  --bg-card: #ffffff;
+  --border: #e8dee1;
+  --title: #2e2528;
+  --text: #73686c;
+  --placeholder: #9b8f93;
+  --btn-selected: #7b474f;
+  --shadow-primary: 0 12px 28px rgba(168, 79, 96, 0.28);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--bg-main);
+  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  color: var(--text);
+}
+
+.app-shell {
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  background: var(--bg-main);
+  border-radius: 0;
+  display: flex;
+  overflow: hidden;
+}
+
+.brand-panel {
+  width: 47%;
+  background: var(--soft);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 32px;
+}
+.brand-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+.logo-area {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.brand-title {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 0.9;
+  letter-spacing: 0.04em;
+  color: var(--secondary);
+  text-transform: uppercase;
+}
+.brand-subtitle {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text);
+  max-width: 320px;
+}
+
+.petal {
+  position: absolute;
+  background: radial-gradient(
+    70% 70% at 30% 30%,
+    #f4b5be 0%,
+    #e79aa5 60%,
+    #d98b97 100%
+  );
+  opacity: 0.55;
+  border-radius: 4px 78% 4px 78%;
+  z-index: 1;
+}
+.petal.p1 {
+  width: 110px;
+  height: 90px;
+  left: -20px;
+  top: -10px;
+  transform: rotate(-20deg);
+  opacity: 0.5;
+}
+.petal.p2 {
+  width: 46px;
+  height: 42px;
+  left: 118px;
+  top: 96px;
+  transform: rotate(22deg);
+  opacity: 0.35;
+  background: #f7c7cd;
+}
+.petal.p3 {
+  width: 98px;
+  height: 92px;
+  right: -10px;
+  top: -8px;
+  transform: rotate(20deg);
+}
+.petal.p4 {
+  width: 68px;
+  height: 62px;
+  right: 56px;
+  top: 122px;
+  transform: rotate(40deg);
+  background: #f1b0b8;
+}
+.petal.p5 {
+  width: 82px;
+  height: 72px;
+  left: 28px;
+  top: 368px;
+  transform: rotate(-38deg);
+  background: #f2b4bc;
+}
+.petal.p6 {
+  width: 124px;
+  height: 108px;
+  left: 48px;
+  bottom: 132px;
+  transform: rotate(-28deg);
+}
+.petal.p7 {
+  width: 78px;
+  height: 84px;
+  right: 58px;
+  bottom: 304px;
+  transform: rotate(24deg);
+  background: #f2b4bc;
+}
+.petal.p8 {
+  width: 52px;
+  height: 48px;
+  right: 18px;
+  bottom: 88px;
+  transform: rotate(18deg);
+  background: #f7d0d5;
+}
+.petal.p9 {
+  width: 76px;
+  height: 68px;
+  left: 42%;
+  bottom: -8px;
+  transform: rotate(-12deg);
+  background: #f2b4bc;
+}
+
+.form-panel {
+  width: 53%;
+  background: var(--bg-main);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 56px 24px;
+}
+.view {
+  display: none;
+  flex-direction: column;
+  height: 100%;
+}
+.view.active {
+  display: flex;
+  animation: fadeInView 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes fadeInView {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.view-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.back-link {
+  background: none;
+  border: none;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: var(--title);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  margin-bottom: 22px;
+  width: fit-content;
+}
+
+.eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 14px;
+  display: block;
+}
+.main-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 44px;
+  line-height: 1.05;
+  color: var(--title);
+  font-weight: 600;
+}
+.main-title em {
+  font-style: italic;
+  color: var(--secondary);
+  font-weight: 500;
+}
+.main-subtitle {
+  margin-top: 14px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text);
+  max-width: 380px;
+}
+.welcome-content {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 48px;
+  padding-top: 40px;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+}
+.welcome-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.actions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.actions .btn {
+  min-width: 200px;
+  width: auto;
+  padding: 14px 42px;
+}
+
+.form-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 38px;
+  font-weight: 600;
+  color: var(--secondary);
+  letter-spacing: 0.02em;
+}
+.form-subtitle {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--text);
+}
+.form {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.field label {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  color: var(--text);
+}
+.input {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 15px 16px;
+  font-size: 14px;
+  color: var(--title);
+  outline: none;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+.input::placeholder {
+  color: var(--placeholder);
+}
+.input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(198, 111, 125, 0.12);
+}
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.input-wrapper .input {
+  padding-right: 44px;
+}
+
+.eye-btn {
+  position: absolute;
+  right: 8px;
+  background: none;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.eye-btn .eye-on {
+  display: none;
+}
+.eye-btn.showing .eye-off {
+  display: none;
+}
+.eye-btn.showing .eye-on {
+  display: block;
+}
+
+.form-extra {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -4px;
+}
+.link-forgot {
+  font-size: 13px;
+  color: var(--secondary);
+  text-decoration: none;
+  font-weight: 500;
+}
+.link-forgot:hover {
+  text-decoration: underline;
+}
+
+.btn {
+  border-radius: 999px;
+  padding: 16px 22px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+  letter-spacing: 0.01em;
+}
+.btn-primary {
+  background: var(--primary-btn);
+  color: #fff;
+  box-shadow: var(--shadow-primary);
+}
+.btn-primary:hover {
+  background: var(--btn-selected);
+  transform: translateY(-1px);
+}
+.btn-outline {
+  background: transparent;
+  border-color: var(--secondary);
+  color: var(--secondary);
+}
+.btn-outline:hover {
+  background: var(--soft);
+}
+.btn-full {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 6px 0;
+  color: var(--text);
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  width: 100%;
+  max-width: 320px;
+}
+.divider span {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.divider i {
+  font-size: 14px;
+}
+
+.form-footer {
+  margin-top: auto;
+  padding-top: 24px;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--text);
+  opacity: 0.9;
+}
+.form-footer a {
+  color: var(--secondary);
+  text-decoration: none;
+  font-weight: 600;
+}
+.form-footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 960px) {
+  html,
+  body {
+    overflow: auto;
+  }
+  .app-shell {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+    overflow: auto;
+  }
+  .brand-panel,
+  .form-panel {
+    width: 100%;
+  }
+  .brand-panel {
+    padding: 48px 24px;
+    min-height: 50vh;
+  }
+  .brand-title {
+    font-size: 48px;
+  }
+}

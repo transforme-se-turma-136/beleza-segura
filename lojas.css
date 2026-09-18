@@ -1,0 +1,225 @@
+/* ===== Tokens de cor ===== */
+:root {
+  --background: oklch(0.975 0.014 20);
+  --foreground: oklch(0.27 0.013 15);
+  --border: oklch(0.929 0.013 255.508);
+  --muted-foreground: oklch(0.554 0.046 257.417);
+  --primary-foreground: oklch(0.984 0.003 247.858);
+  --store-surface: oklch(1 0 0);
+  --store-rose: oklch(0.653 0.105 9);
+  --store-rose-soft: oklch(0.927 0.027 8);
+  --store-green: oklch(0.61 0.15 150);
+  --store-green-soft: oklch(0.94 0.045 150);
+  --store-star: oklch(0.72 0.15 68);
+  --font-sans: "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ===== Base ===== */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+/* ===== Estrutura Adaptável ===== */
+.stores-page {
+  min-height: 100svh;
+  background: var(--background);
+  display: flex;
+  justify-content: center;
+}
+
+.stores-shell {
+  width: 100%;
+  /* No mobile ocupa toda a largura útil; no desktop expande de forma elegante */
+  max-width: 100%; 
+  margin-inline: auto;
+  padding: 16px;
+}
+
+/* ===== Cabeçalho ===== */
+.stores-header {
+  display: grid;
+  grid-template-columns: 46px 1fr 46px;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.stores-title {
+  margin: 0;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.icon-button {
+  display: inline-flex;
+  width: 46px;
+  height: 46px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 999px;
+  background: var(--store-surface);
+  color: var(--muted-foreground);
+  box-shadow: 0 2px 4px oklch(0.3 0.02 15 / 0.13);
+  cursor: pointer;
+}
+
+/* ===== Filtros ===== */
+.stores-filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.stores-filters::-webkit-scrollbar { display: none; }
+
+.filter-button {
+  min-height: 36px;
+  padding: 0 17px;
+  border: 0;
+  border-radius: 11px;
+  background: var(--store-rose-soft);
+  color: var(--muted-foreground);
+  font: inherit;
+  font-size: 13px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.filter-button.is-active {
+  background: var(--store-rose);
+  color: var(--primary-foreground);
+}
+
+/* ===== Lista de lojas (Grid Responsivo para Web) ===== */
+.store-list { 
+  display: grid; 
+  gap: 16px; 
+  grid-template-columns: 1fr; /* Padrão Mobile: 1 coluna */
+}
+
+.store-card {
+  min-height: 114px;
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  gap: 13px;
+  align-items: center;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--store-surface);
+  box-shadow: 0 2px 8px oklch(0.3 0.02 15 / 0.04);
+}
+
+.store-logo {
+  width: 88px;
+  height: 88px;
+  border-radius: 17px;
+  object-fit: cover;
+}
+
+.store-content { min-width: 0; }
+
+.store-name {
+  margin: 0 0 4px;
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.verified-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 7px;
+  border: 1px solid var(--store-green);
+  border-radius: 999px;
+  background: var(--store-green-soft);
+  color: var(--store-green);
+  font-size: 9px;
+  line-height: 1;
+}
+
+.store-actions {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.store-stars { display: flex; gap: 2px; color: var(--store-star); }
+
+.store-link {
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 14px;
+  border-radius: 12px;
+  background: var(--store-rose);
+  color: var(--primary-foreground);
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* ===== Foco acessível ===== */
+.icon-button:focus-visible,
+.filter-button:focus-visible,
+.store-link:focus-visible {
+  outline: 2px solid var(--store-rose);
+  outline-offset: 2px;
+}
+
+/* ===== Media Queries para Web (Responsividade Avançada) ===== */
+
+/* Tablets / Telas Médias */
+@media (min-width: 640px) {
+  .stores-shell {
+    max-width: 600px;
+    padding: 24px;
+  }
+  .store-list {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+  }
+}
+
+/* Desktops / Telas Grandes */
+@media (min-width: 1024px) {
+  .stores-shell {
+    max-width: 1000px;
+    padding: 32px 40px;
+  }
+  .store-list {
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas de cards */
+  }
+}
+
+/* Telas muito largas (Ultra-wide) */
+@media (min-width: 1280px) {
+  .stores-shell {
+    max-width: 1200px;
+  }
+  .store-list {
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas */
+  }
+}
+
+/* ===== Animações ===== */
+@media (prefers-reduced-motion: no-preference) {
+  .icon-button, .filter-button, .store-link { transition: transform 150ms ease, filter 150ms ease; }
+  .icon-button:active, .filter-button:active, .store-link:active { transform: scale(0.96); }
+}

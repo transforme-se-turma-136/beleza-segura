@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beleza Segura - Acesso</title>
+    <link rel="icon" type="image/png" href="Logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="login.css" />
+</head>
+
+<body>
+    <div class="app-shell">
+        <aside class="brand-panel">
+            <span class="petal p1"></span>
+            <span class="petal p2"></span>
+            <span class="petal p3"></span>
+            <span class="petal p4"></span>
+            <span class="petal p5"></span>
+            <span class="petal p6"></span>
+            <span class="petal p7"></span>
+            <span class="petal p8"></span>
+            <span class="petal p9"></span>
+
+            <div class="brand-inner">
+                <div id="logo-area" class="logo-area">
+                    <img id="logo-principal" class="logo-img" src="Logo.png"
+                        alt="SUA LOGO AQUI - troque o src deste img" />
+                </div>
+
+                <h1 class="brand-title">BELEZA<br>SEGURA</h1>
+                <p class="brand-subtitle">Onde beleza, confiança e segurança se<br>encontram.</p>
+            </div>
+        </aside>
+
+        <main class="form-panel">
+
+            <!-- Tela de Boas-vindas -->
+            <section id="view-welcome" class="view active">
+                <div class="view-content welcome-content">
+                    <div class="welcome-header">
+                        <span class="eyebrow">BEM-VINDO</span>
+                        <h2 class="main-title">Sua beleza,<br><em>com toda confiança.</em></h2>
+                        <p class="main-subtitle">Acesse sua conta para continuar ou crie uma nova em poucos passos.</p>
+                    </div>
+
+                    <div class="actions">
+                        <button id="btn-ir-login" class="btn btn-primary">Entrar</button>
+                        <div class="divider"><span></span><i>ou</i><span></span></div>
+                        <button id="btn-ir-cadastro" class="btn btn-outline">Cadastrar</button>
+                    </div>
+                </div>
+                <footer class="form-footer">
+                    Ao continuar, você concorda com nossos <a href="#">Termos</a>, <a href="#">Política de
+                        Privacidade</a> e <a href="#">Uso de cookies</a>.
+                </footer>
+            </section>
+
+            <!-- Tela de Login -->
+            <section id="view-login" class="view">
+                <button id="btn-voltar-login" class="back-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6" />
+                    </svg>
+                    VOLTAR
+                </button>
+                <div class="view-content">
+                    <h2 class="form-title">Fazer Login</h2>
+                    <p class="form-subtitle">Informe seu e-mail cadastrado e sua senha.</p>
+
+                    <form id="formLogin" onsubmit="Login(event)" class="form">
+                        <div class="field">
+                            <label for="emailLogin">E-MAIL</label>
+                            <input id="emailLogin" class="input" type="email" placeholder="seu@email.com"
+                                autocomplete="email" />
+                        </div>
+                        <div class="field">
+                            <label for="SenhaLogin">SENHA</label>
+                            <div class="input-wrapper">
+                                <input id="SenhaLogin" class="input" type="password" placeholder="Digite sua senha"
+                                    autocomplete="current-password" />
+                                <button type="button" class="eye-btn" data-toggle-password="SenhaLogin"
+                                    aria-label="Mostrar senha">
+                                    <svg class="eye-off" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                        stroke="#9B8F93" stroke-width="1.5">
+                                        <path d="M3 3l18 18" />
+                                        <path d="M10.6 10.6a2 2 0 002.8 2.8" />
+                                        <path
+                                            d="M9.88 5.09A10.94 10.94 0 0112 5c7 0 10 7 10 7a18.16 18.16 0 01-3.2 4.3" />
+                                        <path
+                                            d="M14.12 14.12A10.94 10.94 0 0112 15c-7 0-10-7-10-7a18.16 18.16 0 013.2-4.3" />
+                                    </svg>
+                                    <svg class="eye-on" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                        stroke="#9B8F93" stroke-width="1.5">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-extra">
+                            <a href="#" class="link-forgot">Esqueci a senha</a>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Entrar</button>
+                    </form>
+                </div>
+                <footer class="form-footer">
+                    Ao continuar, você concorda com nossos <a href="#">Termos</a>, <a href="#">Política de
+                        Privacidade</a> e <a href="#">Uso de cookies</a>.
+                </footer>
+            </section>
+
+            <!-- Tela de Cadastro -->
+            <section id="view-register" class="view">
+                <button id="btn-voltar-cadastro" class="back-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6" />
+                    </svg>
+                    VOLTAR
+                </button>
+                <div class="view-content">
+                    <h2 class="form-title">Crie sua conta</h2>
+                    <p class="form-subtitle">Cadastre-se para cuidar da sua beleza com mais segurança e confiança.</p>
+
+                    <form id="formCadastro" onsubmit="Cadastrar(event)" class="form">
+                        <div class="field">
+                            <label for="nomeCompleto">NOME COMPLETO</label>
+                            <input id="nomeCompleto" class="input" type="text" placeholder="Digite seu nome completo"
+                                autocomplete="name" />
+                        </div>
+                        <div class="field">
+                            <label for="emailCadastro">E-MAIL</label>
+                            <input id="emailCadastro" class="input" type="email" placeholder="Digite seu e-mail"
+                                autocomplete="email" />
+                        </div>
+                        <div class="field">
+                            <label for="senhaCadastro">SENHA</label>
+                            <div class="input-wrapper">
+                                <input id="senhaCadastro" class="input" type="password" placeholder="Crie sua senha"
+                                    autocomplete="new-password" />
+                                <button type="button" class="eye-btn" data-toggle-password="senhaCadastro"
+                                    aria-label="Mostrar senha">
+                                    <svg class="eye-off" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                        stroke="#9B8F93" stroke-width="1.5">
+                                        <path d="M3 3l18 18" />
+                                        <path d="M10.6 10.6a2 2 0 002.8 2.8" />
+                                        <path
+                                            d="M9.88 5.09A10.94 10.94 0 0112 5c7 0 10 7 10 7a18.16 18.16 0 01-3.2 4.3" />
+                                        <path
+                                            d="M14.12 14.12A10.94 10.94 0 0112 15c-7 0-10-7-10-7a18.16 18.16 0 013.2-4.3" />
+                                    </svg>
+                                    <svg class="eye-on" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                        stroke="#9B8F93" stroke-width="1.5">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="confirmarSenha">CONFIRMAR SENHA</label>
+                            <div class="input-wrapper">
+                                <input id="confirmarSenha" class="input" type="password"
+                                    placeholder="Confirme sua senha" autocomplete="new-password" />
+                                <button type="button" class="eye-btn" data-toggle-password="confirmarSenha"
+                                    aria-label="Mostrar senha">
+                                    <svg class="eye-off" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                        stroke="#9B8F93" stroke-width="1.5">
+                                        <path d="M3 3l18 18" />
+                                        <path d="M10.6 10.6a2 2 0 002.8 2.8" />
+                                        <path
+                                            d="M9.88 5.09A10.94 10.94 0 0112 5c7 0 10 7 10 7a18.16 18.16 0 01-3.2 4.3" />
+                                        <path
+                                            d="M14.12 14.12A10.94 10.94 0 0112 15c-7 0-10-7-10-7a18.16 18.16 0 013.2-4.3" />
+                                    </svg>
+                                    <svg class="eye-on" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                        stroke="#9B8F93" stroke-width="1.5">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Criar conta</button>
+                    </form>
+                </div>
+                <footer class="form-footer">
+                    Ao continuar, você concorda com nossos <a href="#">Termos</a>, <a href="#">Política de
+                        Privacidade</a> e <a href="#">Uso de cookies</a>.
+                </footer>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

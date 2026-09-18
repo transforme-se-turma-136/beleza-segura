@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beleza Segura - Blog</title>
+  <link rel="stylesheet" href="blog.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div class="app-container">
+    <header class="top-bar fade-in-down">
+  <div class="top-bar-left">
+    <button id="openMenuBtn" class="icon-btn" aria-label="Abrir Menu">
+      <i data-lucide="menu"></i>
+    </button>
+    <div class="logo">
+      <img src="Logo.png" alt="Logo Beleza Segura" width="38" height="38" style="object-fit: contain;">
+      <span class="logo-text">Beleza Segura</span>
+    </div>
+  </div>
+
+  <div class="search-container">
+    <i data-lucide="search" class="search-icon"></i>
+    <input type="text" placeholder="Encontre maquiagens, roupas e mais..." class="search-input">
+  </div>
+
+  <div class="top-bar-right">
+    <nav class="web-nav">
+      <a href="landpage.html" class="nav-item" aria-label="Início" title="Início">
+        <span class="nav-icon"><i data-lucide="shopping-bag"></i></span>
+        <span class="nav-label">Início</span>
+      </a>
+      <a href="verificador.html" class="nav-item" aria-label="Verificador" title="Verificador">
+        <span class="nav-icon"><i data-lucide="shield-check"></i></span>
+        <span class="nav-label">Verificador</span>
+      </a>
+      <a href="comunidade.html" class="nav-item" aria-label="Comunidade" title="Comunidade">
+        <span class="nav-icon"><i data-lucide="users"></i></span>
+        <span class="nav-label">Comunidade</span>
+      </a>
+      <a href="cupom.html" class="nav-item" aria-label="Cupons" title="Cupons">
+        <span class="nav-icon"><i data-lucide="ticket"></i></span>
+        <span class="nav-label">Cupons</span>
+      </a>
+      <a href="blog.html" class="nav-item active" aria-label="Blog" title="Blog">
+        <span class="nav-icon"><i data-lucide="book-open"></i></span>
+        <span class="nav-label">Blog</span>
+      </a>
+      <a href="LandpagePerfil.html" class="nav-item" aria-label="Perfil" title="Perfil">
+        <span class="nav-icon"><i data-lucide="user"></i></span>
+        <span class="nav-label">Perfil</span>
+      </a>
+    </nav>
+
+    <button class="icon-btn notification-btn" aria-label="Notificações">
+      <i data-lucide="bell"></i>
+    </button>
+  </div>
+</header>
+    <main class="main-content blog-main">
+      <section class="blog-hero">
+        <div>
+          <span class="blog-kicker">Informação que protege</span>
+          <h1>Blog Beleza Segura</h1>
+          <p>Aprenda a reconhecer golpes digitais, comprar com segurança e proteger seus dados.</p>
+        </div>
+        <div class="blog-hero-icon"><i data-lucide="shield-check"></i></div>
+      </section>
+
+      <div class="blog-layout">
+        <section>
+          <div class="blog-section-heading">
+            <h2>Conteúdos em destaque</h2>
+            <span>Atualizado para você</span>
+          </div>
+          <div class="article-grid">
+            <article class="article-card article-featured">
+              <div class="article-image image-phishing"><i data-lucide="mail-warning"></i></div>
+              <div class="article-body">
+                <span class="article-tag">Golpes digitais</span>
+                <h3>Como identificar um link falso antes de clicar</h3>
+                <p>Veja os sinais que ajudam a diferenciar uma promoção verdadeira de uma tentativa de phishing.</p>
+                <a href="#" class="read-more">Ler artigo <i data-lucide="arrow-right"></i></a>
+              </div>
+            </article>
+            <article class="article-card">
+              <div class="article-image image-store"><i data-lucide="shopping-bag"></i></div>
+              <div class="article-body">
+                <span class="article-tag">Compras seguras</span>
+                <h3>5 cuidados para comprar cosméticos online</h3>
+                <p>Confira loja, reputação, endereço e formas de pagamento antes de finalizar o pedido.</p>
+                <a href="#" class="read-more">Ler artigo <i data-lucide="arrow-right"></i></a>
+              </div>
+            </article>
+            <article class="article-card">
+              <div class="article-image image-payment"><i data-lucide="credit-card"></i></div>
+              <div class="article-body">
+                <span class="article-tag">Proteção de dados</span>
+                <h3>Pix, boletos e descontos: onde mora o risco?</h3>
+                <p>Entenda como validar uma cobrança e evite decisões apressadas em ofertas irresistíveis.</p>
+                <a href="#" class="read-more">Ler artigo <i data-lucide="arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <aside class="blog-sidebar">
+          <div class="safety-card">
+            <i data-lucide="shield-alert"></i>
+            <h2>Regra de ouro</h2>
+            <p>Se a oferta exige pressa, segredo ou pagamento fora da plataforma, pare e verifique.</p>
+            <a href="verificador.html">Usar o verificador <i data-lucide="arrow-up-right"></i></a>
+          </div>
+          <div class="topics-card">
+            <h2>Temas populares</h2>
+            <span>Phishing</span><span>Lojas falsas</span><span>Pix seguro</span><span>Privacidade</span>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </div>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

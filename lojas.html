@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lojas oficiais | Beleza e cosméticos</title>
+  <meta name="description" content="Descubra lojas oficiais e verificadas de beleza e cosméticos." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400..1000&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="lojas.css" />
+  <!-- Biblioteca de Ícones Lucide -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <main class="stores-page">
+    <section class="stores-shell" aria-labelledby="page-title">
+      <header class="stores-header">
+        <button class="icon-button" type="button" aria-label="Voltar" id="back-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+        </button>
+        <h1 id="page-title" class="stores-title">Lojas oficiais</h1>
+        <a href="LandpagePerfil.html" class="icon-button" aria-label="Abrir perfil">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+        </a>
+      </header>
+
+      <!-- Atalho rápido para o Verificador de Links -->
+      <div style="margin-bottom: 20px;">
+        <a href="verificador.html" style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; background: var(--store-rose-soft); color: var(--foreground); border-radius: 16px; text-decoration: none; font-weight: 600; box-shadow: 0 2px 6px oklch(0.3 0.02 15 / 0.05);">
+          <span style="display: flex; align-items: center; gap: 10px;">
+            <i data-lucide="shield-check" style="color: var(--store-rose);"></i> Ir para o Verificador de Link
+          </span>
+          <i data-lucide="chevron-right" style="width: 18px; height: 18px; color: var(--muted-foreground);"></i>
+        </a>
+      </div>
+
+      <nav class="stores-filters" aria-label="Filtrar lojas" id="filters">
+        <button class="filter-button is-active" type="button" data-filter="todos" aria-pressed="true">Todos</button>
+        <button class="filter-button" type="button" data-filter="populares" aria-pressed="false">Populares</button>
+        <button class="filter-button" type="button" data-filter="frete" aria-pressed="false">Frete grátis</button>
+      </nav>
+
+      <!-- Lista de lojas com as imagens oficiais inseridas -->
+      <div class="store-list" id="store-list" aria-live="polite">
+        
+        <!-- Loja 1: Sallve -->
+        <article class="store-card" data-category="populares frete">
+          <img src="sallve.png" alt="Sallve" class="store-logo" />
+          <div class="store-content">
+            <h2 class="store-name">Sallve</h2>
+            <div class="verified-badge">
+              <i data-lucide="check" style="width: 10px; height: 10px;"></i> Verificada
+            </div>
+            <div class="store-actions">
+              <div class="store-stars">
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+              </div>
+              <a href="https://www.sallve.com.br" target="_blank" class="store-link">Visitar loja</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Loja 2: Yes! Cosmetics -->
+        <article class="store-card" data-category="populares">
+          <img src="yes-cosmeticos.png" alt="Yes! Cosmetics" class="store-logo" />
+          <div class="store-content">
+            <h2 class="store-name">Yes! Cosmetics</h2>
+            <div class="verified-badge">
+              <i data-lucide="check" style="width: 10px; height: 10px;"></i> Verificada
+            </div>
+            <div class="store-actions">
+              <div class="store-stars">
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; color: var(--muted-foreground);"></i>
+              </div>
+              <a href="https://www.yescosmetics.com.br" target="_blank" class="store-link">Visitar loja</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Loja 3: Sephora -->
+        <article class="store-card" data-category="populares frete">
+          <img src="sephora.png" alt="Sephora" class="store-logo" />
+          <div class="store-content">
+            <h2 class="store-name">Sephora</h2>
+            <div class="verified-badge">
+              <i data-lucide="check" style="width: 10px; height: 10px;"></i> Verificada
+            </div>
+            <div class="store-actions">
+              <div class="store-stars">
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+              </div>
+              <a href="https://www.sephora.com.br" target="_blank" class="store-link">Visitar loja</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Loja 4: Mundo do Cabeleireiro -->
+        <article class="store-card" data-category="frete">
+          <img src="mundo-do-cabeleleiro.png" alt="Mundo do Cabeleireiro" class="store-logo" />
+          <div class="store-content">
+            <h2 class="store-name">Mundo do Cabeleireiro</h2>
+            <div class="verified-badge">
+              <i data-lucide="check" style="width: 10px; height: 10px;"></i> Verificada
+            </div>
+            <div class="store-actions">
+              <div class="store-stars">
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+              </div>
+              <a href="https://www.mundodocabeleireiro.com.br" target="_blank" class="store-link">Visitar loja</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Loja 5: Creamy -->
+        <article class="store-card" data-category="populares">
+          <img src="creamy.png" alt="Creamy Skincare" class="store-logo" />
+          <div class="store-content">
+            <h2 class="store-name">Creamy Skincare</h2>
+            <div class="verified-badge">
+              <i data-lucide="check" style="width: 10px; height: 10px;"></i> Verificada
+            </div>
+            <div class="store-actions">
+              <div class="store-stars">
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+              </div>
+              <a href="https://www.creamy.com.br" target="_blank" class="store-link">Visitar loja</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <script src="lojas.js"></script>
+  <script>
+    // Inicializa os ícones do Lucide
+    lucide.createIcons();
+  </script>
+</body>
+</html>
