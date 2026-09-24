@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beleza Segura</title>
+  <link rel="stylesheet" href="css/Landpage.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Menu Lateral Compartilhado -->
+    <aside id="sideMenu" class="side-menu">
+      <div class="menu-header">
+        <div class="profile-avatar-container">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=300" alt="Narayana Alves" class="profile-avatar">
+        </div>
+        <button id="closeMenuBtn" class="close-menu-btn" aria-label="Fechar Menu">
+          <i data-lucide="chevron-left"></i>
+        </button>
+      </div>
+      <h2 class="profile-name">Narayana Alves</h2>
+      <nav class="menu-nav">
+        <a href="landpage.html" class="menu-item"><i data-lucide="home"></i><span>Início</span></a>
+        <a href="verificador.html" class="menu-item"><i data-lucide="shield-check"></i><span>Verificador</span></a>
+        <a href="comunidade.html" class="menu-item"><i data-lucide="users"></i><span>Comunidade</span></a>
+        <a href="cupom.html" class="menu-item"><i data-lucide="ticket"></i><span>Cupons</span></a>
+        <a href="blog.html" class="menu-item"><i data-lucide="book-open"></i><span>Blog</span></a>
+        <a href="LandpagePerfil.html" class="menu-item"><i data-lucide="user"></i><span>Perfil</span></a>
+        <a href="login.html" class="menu-item menu-item-logout" aria-label="Sair da conta"><i data-lucide="log-out"></i><span>Sair</span></a>
+      </nav>
+    </aside>
+    <div id="overlay" class="overlay"></div>
+
+    <!-- Conteúdo Principal -->
+    <main class="main-content">
+      
+      <!-- Top Bar / Navbar Web -->
+
+<header class="top-bar fade-in-down">
+  <div class="top-bar-left">
+    <button id="openMenuBtn" class="icon-btn" aria-label="Abrir Menu">
+      <i data-lucide="menu"></i>
+    </button>
+    <div class="logo">
+      <img src="Logo.png" alt="Logo Beleza Segura" width="38" height="38" style="object-fit: contain;">
+      <span class="logo-text">Beleza Segura</span>
+    </div>
+  </div>
+
+  <div class="search-container">
+    <i data-lucide="search" class="search-icon"></i>
+    <input type="text" placeholder="Encontre maquiagens, roupas e mais..." class="search-input">
+  </div>
+
+  <div class="top-bar-right">
+    <nav class="web-nav">
+      <a href="landpage.html" class="nav-item active" aria-label="Início" title="Início">
+        <span class="nav-icon"><i data-lucide="shopping-bag"></i></span>
+        <span class="nav-label">Início</span>
+      </a>
+      <a href="verificador.html" class="nav-item" aria-label="Verificador" title="Verificador">
+        <span class="nav-icon"><i data-lucide="shield-check"></i></span>
+        <span class="nav-label">Verificador</span>
+      </a>
+      <a href="comunidade.html" class="nav-item" aria-label="Comunidade" title="Comunidade">
+        <span class="nav-icon"><i data-lucide="users"></i></span>
+        <span class="nav-label">Comunidade</span>
+      </a>
+      <a href="cupom.html" class="nav-item" aria-label="Cupons" title="Cupons">
+        <span class="nav-icon"><i data-lucide="ticket"></i></span>
+        <span class="nav-label">Cupons</span>
+      </a>
+      <a href="blog.html" class="nav-item" aria-label="Blog" title="Blog">
+        <span class="nav-icon"><i data-lucide="book-open"></i></span>
+        <span class="nav-label">Blog</span>
+      </a>
+      <a href="LandpagePerfil.html" class="nav-item" aria-label="Perfil" title="Perfil">
+        <span class="nav-icon"><i data-lucide="user"></i></span>
+        <span class="nav-label">Perfil</span>
+      </a>
+    </nav>
+
+    <button class="icon-btn notification-btn" aria-label="Notificações">
+      <i data-lucide="bell"></i>
+    </button>
+  </div>
+</header>
+
+      <!-- Banner / Carrossel Full Width (Estilo O Boticário) -->
+<section class="banner-section-full">
+  <div class="carousel-container-full">
+    <div class="carousel-track-full" id="carouselTrack">
+      <div class="banner-card-full">
+        <img src="images/banner2.png" alt="Banner Principal 1" class="banner-img-full">
+      </div>
+      <div class="banner-card-full">
+        <img src="images/banner4.png" alt="Banner Principal 2" class="banner-img-full">
+      </div>
+      <div class="banner-card-full">
+        <img src="images/banner3.png" alt="Banner Principal 3" class="banner-img-full">
+      </div>
+      <div class="banner-card-full">
+        <img src="images/banner1.png" alt="Banner Principal 4" class="banner-img-full">
+      </div>
+      <div class="banner-card-full">
+        <img src="images/banner5.png" alt="Banner Principal 5" class="banner-img-full">
+      </div>
+    </div>
+  </div>
+  <button class="carousel-arrow prev" id="carouselPrev" aria-label="Anterior"><i data-lucide="chevron-left"></i></button>
+  <button class="carousel-arrow next" id="carouselNext" aria-label="Próximo"><i data-lucide="chevron-right"></i></button>
+  <div class="carousel-dots-full" id="carouselDots">
+    <span class="dot active" data-index="0"></span>
+    <span class="dot" data-index="1"></span>
+    <span class="dot" data-index="2"></span>
+    <span class="dot" data-index="3"></span>
+    <span class="dot" data-index="4"></span>
+  </div>
+</section>
+
+      <!-- Categorias Dinâmicas -->
+      <section class="categories-section fade-in-up" style="animation-delay: 0.2s;">
+        <div class="category-item active" data-category="all">
+          <div class="category-icon"><i data-lucide="grid"></i></div>
+          <span class="category-label">Todos</span>
+        </div>
+        <div class="category-item" data-category="maquiagem">
+          <div class="category-icon"><i data-lucide="sparkles"></i></div>
+          <span class="category-label">Maquiagem</span>
+        </div>
+        <div class="category-item" data-category="roupas">
+          <div class="category-icon"><i data-lucide="shirt"></i></div>
+          <span class="category-label">Roupas</span>
+        </div>
+        <div class="category-item" data-category="sapatos">
+          <div class="category-icon"><i data-lucide="footprints"></i></div>
+          <span class="category-label">Sapatos</span>
+        </div>
+        <div class="category-item" data-category="cabelo">
+          <div class="category-icon"><i data-lucide="scissors"></i></div>
+          <span class="category-label">Cabelo</span>
+        </div>
+        <div class="category-item" data-category="skin-care">
+          <div class="category-icon"><i data-lucide="pipette"></i></div>
+          <span class="category-label">Skin Care</span>
+        </div>
+      </section>
+
+      <!-- Produtos em Carrossel (6 Itens) -->
+      <section class="products-section fade-in-up" style="animation-delay: 0.3s;">
+        <h2 class="section-title">O que o povo gosta e tá comprando 🔥</h2>
+        
+        <div class="products-carousel">
+          
+          <div class="product-card">
+            <div class="product-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&q=80&w=400" alt="Produto" class="product-img">
+              <button class="favorite-btn"><i data-lucide="heart"></i></button>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">Blush Compacto Rosa Glow</h3>
+              <div class="badge-row"><span class="trust-badge">Confiável <i data-lucide="check-circle-2" class="badge-icon"></i></span></div>
+              <div class="price-row">
+                <div><span class="price-old">R$ 99,80</span><span class="price">R$ 49,90</span></div>
+                <span class="discount-tag">-50%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=400" alt="Produto" class="product-img">
+              <button class="favorite-btn"><i data-lucide="heart"></i></button>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">Batom Líquido Matte Velvet</h3>
+              <div class="badge-row"><span class="trust-badge">Confiável <i data-lucide="check-circle-2" class="badge-icon"></i></span></div>
+              <div class="price-row">
+                <div><span class="price-old">R$ 70,00</span><span class="price">R$ 35,00</span></div>
+                <span class="discount-tag">-50%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&q=80&w=400" alt="Produto" class="product-img">
+              <button class="favorite-btn"><i data-lucide="heart"></i></button>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">Vestido Floral Elegance</h3>
+              <div class="badge-row"><span class="trust-badge">Confiável <i data-lucide="check-circle-2" class="badge-icon"></i></span></div>
+              <div class="price-row">
+                <div><span class="price-old">R$ 171,30</span><span class="price">R$ 119,90</span></div>
+                <span class="discount-tag">-30%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&q=80&w=400" alt="Produto" class="product-img">
+              <button class="favorite-btn"><i data-lucide="heart"></i></button>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">Tênis Casual Urban Style</h3>
+              <div class="badge-row"><span class="trust-badge">Confiável <i data-lucide="check-circle-2" class="badge-icon"></i></span></div>
+              <div class="price-row">
+                <div><span class="price-old">R$ 228,40</span><span class="price">R$ 159,90</span></div>
+                <span class="discount-tag">-30%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?auto=format&fit=crop&q=80&w=400" alt="Produto" class="product-img">
+              <button class="favorite-btn"><i data-lucide="heart"></i></button>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">Sérum Vitamina C Pura</h3>
+              <div class="badge-row"><span class="trust-badge">Confiável <i data-lucide="check-circle-2" class="badge-icon"></i></span></div>
+              <div class="price-row">
+                <div><span class="price-old">R$ 180,00</span><span class="price">R$ 120,00</span></div>
+                <span class="discount-tag">-33%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=400" alt="Produto" class="product-img">
+              <button class="favorite-btn"><i data-lucide="heart"></i></button>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">Máscara Capilar Hidratação</h3>
+              <div class="badge-row"><span class="trust-badge">Confiável <i data-lucide="check-circle-2" class="badge-icon"></i></span></div>
+              <div class="price-row">
+                <div><span class="price-old">R$ 89,90</span><span class="price">R$ 69,90</span></div>
+                <span class="discount-tag">-22%</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      <!-- Lojas Parceiras em carrossel contínuo -->
+      <section class="partners-section fade-in-up" style="animation-delay: 0.35s;">
+        <h2 class="section-title">Marcas Parceiras 🤝</h2>
+        <div class="partners-marquee" aria-label="Marcas parceiras">
+          <div class="partners-track">
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/wella.png" alt="Wella" class="partner-logo"></div><span>Wella</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/loreal.png" alt="L'Oréal Paris" class="partner-logo"></div><span>L'Oréal Paris</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/saffron.png" alt="Saffron" class="partner-logo"></div><span>Saffron</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/body-shop.png" alt="The Body Shop" class="partner-logo"></div><span>The Body Shop</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/dermacos.png" alt="Dermacos" class="partner-logo"></div><span>Dermacos</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/luscious.png" alt="Luscious Cosmetics" class="partner-logo"></div><span>Luscious Cosmetics</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/garnier.png" alt="Garnier" class="partner-logo"></div><span>Garnier</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/lancome.png" alt="Lancôme" class="partner-logo"></div><span>Lancôme</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/maybelline.png" alt="Maybelline" class="partner-logo"></div><span>Maybelline</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/pgm.png" alt="PGM" class="partner-logo"></div><span>PGM</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/kryolan.png" alt="Kryolan" class="partner-logo"></div><span>Kryolan</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/braun.png" alt="Braun" class="partner-logo"></div><span>Braun</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/clinique.png" alt="Clinique" class="partner-logo"></div><span>Clinique</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/diana.png" alt="Diana of London" class="partner-logo"></div><span>Diana of London</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/flormar.png" alt="Flormar" class="partner-logo"></div><span>Flormar</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/versace.png" alt="Versace" class="partner-logo"></div><span>Versace</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/mac.png" alt="MAC" class="partner-logo"></div><span>MAC</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/janssen.png" alt="Janssen" class="partner-logo"></div><span>Janssen</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/keune.png" alt="Keune" class="partner-logo"></div><span>Keune</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/ifb.png" alt="IFB" class="partner-logo"></div><span>IFB</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/dior.png" alt="Christian Dior" class="partner-logo"></div><span>Christian Dior</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/triumph.png" alt="Triumph" class="partner-logo"></div><span>Triumph</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/g3.png" alt="G3" class="partner-logo"></div><span>G3</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/golden-rose.png" alt="Golden Rose" class="partner-logo"></div><span>Golden Rose</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/wella.png" alt="Wella" class="partner-logo"></div><span>Wella</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/loreal.png" alt="L'Oréal Paris" class="partner-logo"></div><span>L'Oréal Paris</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/saffron.png" alt="Saffron" class="partner-logo"></div><span>Saffron</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/body-shop.png" alt="The Body Shop" class="partner-logo"></div><span>The Body Shop</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/dermacos.png" alt="Dermacos" class="partner-logo"></div><span>Dermacos</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/luscious.png" alt="Luscious Cosmetics" class="partner-logo"></div><span>Luscious Cosmetics</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/garnier.png" alt="Garnier" class="partner-logo"></div><span>Garnier</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/lancome.png" alt="Lancôme" class="partner-logo"></div><span>Lancôme</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/maybelline.png" alt="Maybelline" class="partner-logo"></div><span>Maybelline</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/pgm.png" alt="PGM" class="partner-logo"></div><span>PGM</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/kryolan.png" alt="Kryolan" class="partner-logo"></div><span>Kryolan</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/braun.png" alt="Braun" class="partner-logo"></div><span>Braun</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/clinique.png" alt="Clinique" class="partner-logo"></div><span>Clinique</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/diana.png" alt="Diana of London" class="partner-logo"></div><span>Diana of London</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/flormar.png" alt="Flormar" class="partner-logo"></div><span>Flormar</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/versace.png" alt="Versace" class="partner-logo"></div><span>Versace</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/mac.png" alt="MAC" class="partner-logo"></div><span>MAC</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/janssen.png" alt="Janssen" class="partner-logo"></div><span>Janssen</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/keune.png" alt="Keune" class="partner-logo"></div><span>Keune</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/ifb.png" alt="IFB" class="partner-logo"></div><span>IFB</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/dior.png" alt="Christian Dior" class="partner-logo"></div><span>Christian Dior</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/triumph.png" alt="Triumph" class="partner-logo"></div><span>Triumph</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/g3.png" alt="G3" class="partner-logo"></div><span>G3</span></div>
+            <div class="partner-card"><div class="partner-logo-wrapper"><img src="images/brands/golden-rose.png" alt="Golden Rose" class="partner-logo"></div><span>Golden Rose</span></div>
+          </div>
+        </div>
+      </section>
+      <!-- Comunidade Redesenhada -->
+      <section class="community-section fade-in-up" style="animation-delay: 0.4s;">
+        <h2 class="section-title">Vozes da nossa comunidade 💬</h2>
+        <div class="community-grid">
+          
+          <div class="community-card">
+            <span class="community-pin pin-dica">Dica</span>
+            <div class="community-user">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150" alt="Avatar">
+              <div>
+                <h4>Juliana M.</h4>
+                <div class="stars">★★★★★</div>
+              </div>
+            </div>
+            <p>"Misturar algumas gotas de iluminador na base deixa a pele com um glow incrível de verão. Testem! O resultado é de salão."</p>
+          </div>
+
+          <div class="community-card">
+            <span class="community-pin pin-alerta">Alerta</span>
+            <div class="community-user">
+              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150" alt="Avatar">
+              <div>
+                <h4>Carla T.</h4>
+                <div class="stars" style="color:#d1d5db;">★★★★★</div>
+              </div>
+            </div>
+            <p>"Atenção com a loja X vendendo a paleta Nude Eyes muito barata. Comprei e é falsificada, a pigmentação não existe e me deu alergia!"</p>
+          </div>
+
+          <div class="community-card">
+            <span class="community-pin pin-feedback">Feedback</span>
+            <div class="community-user">
+              <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=150" alt="Avatar">
+              <div>
+                <h4>Roberta F.</h4>
+                <div class="stars">★★★★☆</div>
+              </div>
+            </div>
+            <p>"O sérum de ácido hialurônico que a Beleza Segura indicou secou super rápido na minha pele e não deixou pegajoso. Comprarei novamente!"</p>
+          </div>
+          
+        </div>
+      </section>
+      <!-- Importância de Golpes Digitais -->
+      <section class="security-section fade-in-up" style="animation-delay: 0.5s;">
+        <div class="security-content">
+          <div class="security-icon-wrapper">
+            <i data-lucide="shield-alert"></i>
+          </div>
+          <h2>Proteja-se Contra Golpes Digitais</h2>
+          <p>A segurança é o primeiro passo para uma rotina de beleza perfeita. Compras online trazem praticidade, mas o risco de sites clonados e cosméticos falsificados é real e pode prejudicar sua pele e seu bolso.</p>
+          <a href="blog.html" class="btn-blog">
+            <span>Ler Artigo Completo</span>
+            <i data-lucide="arrow-right"></i>
+          </a>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script>lucide.createIcons();</script>
+  <script src="javascript/Landpage.js"></script>
+</body>
+</html>

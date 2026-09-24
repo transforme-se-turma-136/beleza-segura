@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beleza Segura - Meu Perfil</title>
+  <link rel="stylesheet" href="css/LandpagePerfil.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Menu Lateral Compartilhado -->
+    <aside id="sideMenu" class="side-menu">
+      <div class="menu-header">
+        <div class="profile-avatar-container">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=300" alt="Narayana Alves" class="profile-avatar">
+        </div>
+        <button id="closeMenuBtn" class="close-menu-btn" aria-label="Fechar Menu">
+          <i data-lucide="chevron-left"></i>
+        </button>
+      </div>
+      <h2 class="profile-name">Narayana Alves</h2>
+      <nav class="menu-nav">
+        <a href="landpage.html" class="menu-item"><i data-lucide="home"></i><span>Início</span></a>
+        <a href="verificador.html" class="menu-item"><i data-lucide="shield-check"></i><span>Verificador</span></a>
+        <a href="comunidade.html" class="menu-item"><i data-lucide="users"></i><span>Comunidade</span></a>
+        <a href="cupom.html" class="menu-item"><i data-lucide="ticket"></i><span>Cupons</span></a>
+        <a href="blog.html" class="menu-item"><i data-lucide="book-open"></i><span>Blog</span></a>
+        <a href="LandpagePerfil.html" class="menu-item"><i data-lucide="user"></i><span>Perfil</span></a>
+        <a href="login.html" class="menu-item menu-item-logout" aria-label="Sair da conta"><i data-lucide="log-out"></i><span>Sair</span></a>
+      </nav>
+    </aside>
+    <div id="overlay" class="overlay"></div>
+
+    
+    <!-- Top Bar / Navbar Web -->
+
+<header class="top-bar fade-in-down">
+  <div class="top-bar-left">
+    <button id="openMenuBtn" class="icon-btn" aria-label="Abrir Menu">
+      <i data-lucide="menu"></i>
+    </button>
+    <div class="logo">
+      <img src="Logo.png" alt="Logo Beleza Segura" width="38" height="38" style="object-fit: contain;">
+      <span class="logo-text">Beleza Segura</span>
+    </div>
+  </div>
+
+  <div class="search-container">
+    <i data-lucide="search" class="search-icon"></i>
+    <input type="text" placeholder="Encontre maquiagens, roupas e mais..." class="search-input">
+  </div>
+
+  <div class="top-bar-right">
+    <nav class="web-nav">
+      <a href="landpage.html" class="nav-item" aria-label="Início" title="Início">
+        <span class="nav-icon"><i data-lucide="shopping-bag"></i></span>
+        <span class="nav-label">Início</span>
+      </a>
+      <a href="verificador.html" class="nav-item" aria-label="Verificador" title="Verificador">
+        <span class="nav-icon"><i data-lucide="shield-check"></i></span>
+        <span class="nav-label">Verificador</span>
+      </a>
+      <a href="comunidade.html" class="nav-item" aria-label="Comunidade" title="Comunidade">
+        <span class="nav-icon"><i data-lucide="users"></i></span>
+        <span class="nav-label">Comunidade</span>
+      </a>
+      <a href="cupom.html" class="nav-item" aria-label="Cupons" title="Cupons">
+        <span class="nav-icon"><i data-lucide="ticket"></i></span>
+        <span class="nav-label">Cupons</span>
+      </a>
+      <a href="blog.html" class="nav-item" aria-label="Blog" title="Blog">
+        <span class="nav-icon"><i data-lucide="book-open"></i></span>
+        <span class="nav-label">Blog</span>
+      </a>
+      <a href="LandpagePerfil.html" class="nav-item active" aria-label="Perfil" title="Perfil">
+        <span class="nav-icon"><i data-lucide="user"></i></span>
+        <span class="nav-label">Perfil</span>
+      </a>
+    </nav>
+
+    <button class="icon-btn notification-btn" aria-label="Notificações">
+      <i data-lucide="bell"></i>
+    </button>
+  </div>
+</header>
+
+
+
+    <!-- Conteúdo Principal em Layout Web (Dashboard Grid) -->
+    <main class="main-content">
+      
+      <!-- Layout de 2 colunas estilo site corporativo/e-commerce -->
+      <div class="dashboard-layout">
+        
+        <!-- COLUNA ESQUERDA: Perfil Lateral -->
+        <aside class="profile-sidebar">
+          <div class="profile-card">
+            <div class="avatar-wrapper">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=300" alt="Foto do Usuário" class="avatar-img">
+              <button class="camera-btn" aria-label="Alterar Foto" title="Alterar Foto">
+                <i data-lucide="camera"></i>
+              </button>
+            </div>
+            
+            <h2 class="user-name">Narayana Alves</h2>
+            <p class="user-email">narayana@email.com</p>
+
+            <div class="vip-badge">
+              <i data-lucide="sparkles" class="badge-icon"></i>
+              <span>Membro BelezaVIP</span>
+            </div>
+
+            <div class="sidebar-divider"></div>
+
+            <a href="landpage.html" class="logout-button">
+              <i data-lucide="log-out"></i>
+              <span>Sair da Conta</span>
+            </a>
+          </div>
+        </aside>
+
+        <!-- COLUNA DIREITA: Conteúdo do Dashboard (Minha Conta e Preferências) -->
+        <div class="dashboard-content">
+          
+          <!-- Seção: Minha Conta -->
+          <section class="menu-section">
+            <h3 class="section-heading">Minha Conta</h3>
+
+            <div class="menu-grid">
+              <a href="#" class="menu-card">
+                <div class="menu-icon-box">
+                  <i data-lucide="package"></i>
+                </div>
+                <div class="menu-info">
+                  <span class="menu-title">Meus Pedidos</span>
+                  <span class="menu-subtitle">Rastreamento e histórico de compras</span>
+                </div>
+                <i data-lucide="chevron-right" class="arrow-icon"></i>
+              </a>
+
+              <a href="#" class="menu-card">
+                <div class="menu-icon-box">
+                  <i data-lucide="heart"></i>
+                </div>
+                <div class="menu-info">
+                  <span class="menu-title">Produtos Favoritos</span>
+                  <span class="menu-subtitle">Sua lista de desejos e salvos</span>
+                </div>
+                <i data-lucide="chevron-right" class="arrow-icon"></i>
+              </a>
+
+              <a href="#" class="menu-card">
+                <div class="menu-icon-box">
+                  <i data-lucide="map-pin"></i>
+                </div>
+                <div class="menu-info">
+                  <span class="menu-title">Endereços Salvos</span>
+                  <span class="menu-subtitle">Gerenciar locais de entrega</span>
+                </div>
+                <i data-lucide="chevron-right" class="arrow-icon"></i>
+              </a>
+            </div>
+          </section>
+
+          <!-- Seção: Preferências -->
+          <section class="menu-section">
+            <h3 class="section-heading">Preferências & Segurança</h3>
+
+            <div class="menu-grid">
+              <a href="#" class="menu-card">
+                <div class="menu-icon-box">
+                  <i data-lucide="bell"></i>
+                </div>
+                <div class="menu-info">
+                  <span class="menu-title">Notificações</span>
+                  <span class="menu-subtitle">Ofertas, alertas e avisos</span>
+                </div>
+                <i data-lucide="chevron-right" class="arrow-icon"></i>
+              </a>
+
+              <a href="#" class="menu-card">
+                <div class="menu-icon-box">
+                  <i data-lucide="shield-check"></i>
+                </div>
+                <div class="menu-info">
+                  <span class="menu-title">Privacidade e Senha</span>
+                  <span class="menu-subtitle">Segurança da conta e acessos</span>
+                </div>
+                <i data-lucide="chevron-right" class="arrow-icon"></i>
+              </a>
+            </div>
+          </section>
+
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+  <script src="javascript/menu.js"></script>
+</body>
+</html>

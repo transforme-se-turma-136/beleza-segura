@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beleza Segura - Verificador e Lojas</title>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="css/verificador.css" rel="stylesheet">
+  <style>
+    .ai-chat-widget {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 9999;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    .ai-fab-btn {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #E88B9E;
+      border: none;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(232, 139, 158, 0.4);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+    }
+    .ai-fab-btn:hover {
+      transform: scale(1.1);
+      background-color: #d6778b;
+    }
+    .ai-pulse-dot {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      width: 12px;
+      height: 12px;
+      background-color: #4ade80;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+    }
+    .ai-chat-box {
+      position: absolute;
+      bottom: 80px;
+      right: 0;
+      width: 360px;
+      max-width: calc(100vw - 40px);
+      height: 500px;
+      background-color: #FFFFFF;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      border: 1px solid #F3E2E5;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transform: translateY(20px) scale(0.95);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .ai-chat-box.active {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+      visibility: visible;
+    }
+    .ai-chat-header {
+      padding: 16px 20px;
+      background-color: #FDF0F3;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #F3E2E5;
+    }
+    .ai-chat-title-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .ai-avatar-icon {
+      width: 38px;
+      height: 38px;
+      background-color: #FFFFFF;
+      border: 1px solid #F3E2E5;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+    .ai-chat-header h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #3A3235;
+      margin: 0;
+    }
+    .ai-status {
+      font-size: 0.75rem;
+      color: #4ade80;
+      font-weight: 600;
+    }
+    .ai-close-btn {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #9E9497;
+      cursor: pointer;
+      padding: 0 4px;
+      transition: color 0.2s;
+    }
+    .ai-close-btn:hover {
+      color: #3A3235;
+    }
+    .ai-chat-messages {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background-color: #FFF9F9;
+    }
+    .ai-message {
+      display: flex;
+      max-width: 85%;
+    }
+    .ai-message.bot {
+      align-self: flex-start;
+    }
+    .ai-message.user {
+      align-self: flex-end;
+    }
+    .ai-bubble {
+      padding: 12px 16px;
+      border-radius: 14px;
+      font-size: 0.88rem;
+      line-height: 1.4;
+    }
+    .ai-message.bot .ai-bubble {
+      background-color: #FFFFFF;
+      color: #3A3235;
+      border: 1px solid #F3E2E5;
+      border-top-left-radius: 4px;
+    }
+    .ai-message.user .ai-bubble {
+      background-color: #E88B9E;
+      color: #FFFFFF;
+      border-top-right-radius: 4px;
+    }
+    .ai-suggestions-area {
+      padding: 12px 16px;
+      background-color: #FFFFFF;
+      border-top: 1px solid #F3E2E5;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .ai-suggestions-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #9E9497;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .ai-chips-container {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+    .ai-chip {
+      background-color: #FDF0F3;
+      border: 1px solid #F3E2E5;
+      color: #E88B9E;
+      padding: 6px 12px;
+      border-radius: 16px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .ai-chip:hover {
+      background-color: #E88B9E;
+      color: #FFFFFF;
+      border-color: #E88B9E;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Menu Lateral Compartilhado -->
+    <aside id="sideMenu" class="side-menu">
+      <div class="menu-header">
+        <div class="profile-avatar-container">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=300" alt="Narayana Alves" class="profile-avatar">
+        </div>
+        <button id="closeMenuBtn" class="close-menu-btn" aria-label="Fechar Menu">
+          <i data-lucide="chevron-left"></i>
+        </button>
+      </div>
+      <h2 class="profile-name">Narayana Alves</h2>
+      <nav class="menu-nav">
+        <a href="landpage.html" class="menu-item"><i data-lucide="home"></i><span>Início</span></a>
+        <a href="verificador.html" class="menu-item"><i data-lucide="shield-check"></i><span>Verificador</span></a>
+        <a href="comunidade.html" class="menu-item"><i data-lucide="users"></i><span>Comunidade</span></a>
+        <a href="cupom.html" class="menu-item"><i data-lucide="ticket"></i><span>Cupons</span></a>
+        <a href="blog.html" class="menu-item"><i data-lucide="book-open"></i><span>Blog</span></a>
+        <a href="LandpagePerfil.html" class="menu-item"><i data-lucide="user"></i><span>Perfil</span></a>
+        <a href="login.html" class="menu-item menu-item-logout" aria-label="Sair da conta"><i data-lucide="log-out"></i><span>Sair</span></a>
+      </nav>
+    </aside>
+    <div id="overlay" class="overlay"></div>
+
+
+<header class="top-bar fade-in-down">
+  <div class="top-bar-left">
+    <button id="openMenuBtn" class="icon-btn" aria-label="Abrir Menu">
+      <i data-lucide="menu"></i>
+    </button>
+    <div class="logo">
+      <img src="Logo.png" alt="Logo Beleza Segura" width="38" height="38" style="object-fit: contain;">
+      <span class="logo-text">Beleza Segura</span>
+    </div>
+  </div>
+
+  <div class="search-container">
+    <i data-lucide="search" class="search-icon"></i>
+    <input type="text" placeholder="Encontre maquiagens, roupas e mais..." class="search-input">
+  </div>
+
+  <div class="top-bar-right">
+    <nav class="web-nav">
+      <a href="landpage.html" class="nav-item" aria-label="Início" title="Início">
+        <span class="nav-icon"><i data-lucide="shopping-bag"></i></span>
+        <span class="nav-label">Início</span>
+      </a>
+      <a href="verificador.html" class="nav-item active" aria-label="Verificador" title="Verificador">
+        <span class="nav-icon"><i data-lucide="shield-check"></i></span>
+        <span class="nav-label">Verificador</span>
+      </a>
+      <a href="comunidade.html" class="nav-item" aria-label="Comunidade" title="Comunidade">
+        <span class="nav-icon"><i data-lucide="users"></i></span>
+        <span class="nav-label">Comunidade</span>
+      </a>
+      <a href="cupom.html" class="nav-item" aria-label="Cupons" title="Cupons">
+        <span class="nav-icon"><i data-lucide="ticket"></i></span>
+        <span class="nav-label">Cupons</span>
+      </a>
+      <a href="blog.html" class="nav-item" aria-label="Blog" title="Blog">
+        <span class="nav-icon"><i data-lucide="book-open"></i></span>
+        <span class="nav-label">Blog</span>
+      </a>
+      <a href="LandpagePerfil.html" class="nav-item" aria-label="Perfil" title="Perfil">
+        <span class="nav-icon"><i data-lucide="user"></i></span>
+        <span class="nav-label">Perfil</span>
+      </a>
+    </nav>
+
+    <button class="icon-btn notification-btn" aria-label="Notificações">
+      <i data-lucide="bell"></i>
+    </button>
+  </div>
+</header>
+
+    <main class="main-content">
+      <div class="verificador-layout">
+        <h1 class="page-title">Verificador Antigolpes IA</h1>
+
+        <section class="card-input-box">
+          <label for="link-input" class="input-label">Cole o link do site, mensagem suspeita ou nome da loja:</label>
+          <div class="input-wrapper">
+            <textarea id="link-input" placeholder="ex: 'https://www.ofertaboticario.com.br' ou 'Airfryer por R$ 49'" class="link-input" style="height: 90px;"></textarea>
+          </div>
+          <button id="verifyBtn" class="verify-button">
+            <i data-lucide="shield"></i>
+            <span>VERIFICAR SEGURANÇA AGORA</span>
+          </button>
+        </section>
+
+        <div id="resultsContainer" class="result-container-hidden">
+          <section id="cardResultBox" class="card-result-box">
+            <div class="result-header">
+              <div id="resultIconContainer" class="result-icon-container">
+                <i data-lucide="shield-check" id="resultMainIcon" class="result-main-icon"></i>
+              </div>
+              <div class="result-text-group">
+                <h2 id="resultTitle" class="result-title">Validado</h2>
+                <p id="resultSubtitle" class="result-subtitle">Nossa inteligência analisou e validou este conteúdo.</p>
+              </div>
+            </div>
+
+            <div class="risk-section">
+              <div class="risk-labels">
+                <span class="risk-title-text">Índice de Risco / Reputação</span>
+                <span id="riskPercentage" class="risk-percentage">Bom (Nota: 7/10)</span>
+              </div>
+              <div class="risk-bar-bg">
+                <div id="riskBarFill" class="risk-bar-fill" style="width: 30%;"></div>
+              </div>
+            </div>
+
+            <div id="fraudAlertsContainer"></div>
+          </section>
+
+          <section class="card-signals-box">
+            <h3 class="signals-heading">MÉTRICAS DETALHADAS DE SEGURANÇA</h3>
+
+            <div class="signal-item">
+              <div class="signal-left">
+                <div class="signal-icon-box"><i data-lucide="globe"></i></div>
+                <div class="signal-info">
+                  <span class="signal-name">Popularidade e Reputação</span>
+                  <span class="signal-desc">Verificação de tráfego e menções online.</span>
+                </div>
+              </div>
+              <div id="sigPopularity" class="signal-status-badge">
+                <i data-lucide="check"></i> Popular
+              </div>
+            </div>
+
+            <div class="signal-item">
+              <div class="signal-left">
+                <div class="signal-icon-box"><i data-lucide="history"></i></div>
+                <div class="signal-info">
+                  <span class="signal-name">Tempo de Registro do Domínio</span>
+                  <span class="signal-desc">Identificação de sites recém-criados por golpistas.</span>
+                </div>
+              </div>
+              <div id="sigAge" class="signal-status-badge">
+                <i data-lucide="check"></i> Consolidado
+              </div>
+            </div>
+
+            <div class="signal-item">
+              <div class="signal-left">
+                <div class="signal-icon-box"><i data-lucide="tag"></i></div>
+                <div class="signal-info">
+                  <span class="signal-name">Análise de Padrão e Extensão</span>
+                  <span class="signal-desc">Detecção de domínios falsificados e typosquatting.</span>
+                </div>
+              </div>
+              <div id="sigExtension" class="signal-status-badge">
+                <i data-lucide="check"></i> Seguro
+              </div>
+            </div>
+
+            <div class="signal-item">
+              <div class="signal-left">
+                <div class="signal-icon-box"><i data-lucide="lock"></i></div>
+                <div class="signal-info">
+                  <span class="signal-name">HTTPS (Selo SSL)</span>
+                  <span class="signal-desc">Criptografia de dados ativos.</span>
+                </div>
+              </div>
+              <div id="sigSsl" class="signal-status-badge">
+                <i data-lucide="check"></i> Ativo (Válido)
+              </div>
+            </div>
+
+            <div class="signal-item">
+              <div class="signal-left">
+                <div class="signal-icon-box"><i data-lucide="shield-alert"></i></div>
+                <div class="signal-info">
+                  <span class="signal-name">Varredura de Golpes</span>
+                  <span class="signal-desc">Busca por padrões de engenharia social, preços falsos ou phishing.</span>
+                </div>
+              </div>
+              <div id="sigScam" class="signal-status-badge">
+                <i data-lucide="check"></i> Limpo
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <section class="official-stores-section">
+          <h2 class="section-header-title">
+            <i data-lucide="award" style="color: var(--primary-pink); width: 22px; height: 22px;"></i> Lojas Oficiais e Verificadas
+          </h2>
+
+          <div class="store-list">
+            <article class="store-card">
+              <img src="sallve.png" alt="Sallve" class="store-logo" />
+              <div class="store-content">
+                <h3 class="store-name">Sallve</h3>
+                <div class="verified-badge"><i data-lucide="check" style="width: 10px; height: 10px;"></i> Verificada</div>
+                <div class="store-actions">
+                  <div class="store-stars">
+                    <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                    <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                    <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                    <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                    <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                  </div>
+                  <a href="https://www.sallve.com.br" target="_blank" class="store-link">Visitar loja</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="store-card">
+              <img src="yes-cosmeticos.png" alt="Yes! Cosmetics" class="store-logo" />
+              <div class="store-content">
+                <h3 class="store-name">Yes! Cosmetics</h3>
+                <div class="verified-badge"><i data-lucide="check" style="width: 10px; height: 10px;"></i> Verificada</div>
+                <div class="store-actions">
+                  <div class="store-stars">
+                    <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                    <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                    <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                    <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                    <i data-lucide="star" style="width: 14px; height: 14px; color: var(--text-muted); opacity: 0.3;"></i>
+                  </div>
+                  <a href="https://www.yescosmetics.com.br" target="_blank" class="store-link">Visitar loja</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="store-card">
+              <img src="sephora.png" alt="Sephora" class="store-logo" />
+              <div class="store-content">
+                <h3 class="store-name">Sephora</h3>
+                <div class="verified-badge"><i data-lucide="check" style="width: 10px; height: 10px;"></i> Verificada</div>
+                <div class="store-actions">
+                  <div class="store-stars">
+                    <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                    <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                    <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                    <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                    <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                  </div>
+                  <a href="https://www.sephora.com.br" target="_blank" class="store-link">Visitar loja</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="store-card">
+              <img src="mundo-do-cabeleireiro.png" alt="Mundo do Cabeleireiro" class="store-logo" />
+              <div class="store-content">
+                <h3 class="store-name">Mundo do Cabeleireiro</h3>
+                <div class="verified-badge"><i data-lucide="check" style="width: 10px; height: 10px;"></i> Verificada</div>
+                <div class="store-actions">
+                  <div class="store-stars">
+                    <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                    <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                    <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                    <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                    <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                  </div>
+                  <a href="https://www.mundodocabeleireiro.com.br" target="_blank" class="store-link">Visitar loja</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="store-card">
+              <img src="creamy.png" alt="Creamy Skincare" class="store-logo" />
+              <div class="store-content">
+                <h3 class="store-name">Creamy Skincare</h3>
+                <div class="verified-badge"><i data-lucide="check" style="width: 10px; height: 10px;"></i> Verificada</div>
+                <div class="store-actions">
+                  <div class="store-stars">
+                    <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                    <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                    <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                    <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                    <i data-lucide="star" style="width: 14px; height: 14px; fill: currentColor;"></i>
+                  </div>
+                  <a href="https://www.creamy.com.br" target="_blank" class="store-link">Visitar loja</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- Widget de IA -->
+    <div class="ai-chat-widget">
+      <button id="aiChatToggle" class="ai-fab-btn" aria-label="Assistente IA">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          <line x1="9" y1="9" x2="15" y2="9"></line>
+          <line x1="9" y1="13" x2="13" y2="13"></line>
+        </svg>
+        <span class="ai-pulse-dot"></span>
+      </button>
+
+      <div id="aiChatBox" class="ai-chat-box">
+        <div class="ai-chat-header">
+          <div class="ai-chat-title-wrapper">
+            <div class="ai-avatar-icon">✨</div>
+            <div>
+              <h3>Assistente IA</h3>
+              <span class="ai-status">Pronta para ajudar</span>
+            </div>
+          </div>
+          <button id="aiChatClose" class="ai-close-btn">&times;</button>
+        </div>
+
+        <div id="aiChatMessages" class="ai-chat-messages">
+          <div class="ai-message bot">
+            <div class="ai-bubble">
+              Olá! Posso ajudar a encontrar produtos de forma mais segura. Escolha uma pergunta ou escreva o que você procura.
+            </div>
+          </div>
+        </div>
+
+        <div class="ai-suggestions-area">
+            <span class="ai-suggestions-title">Recomendações rápidas:</span>
+            <div class="ai-chips-container">
+            <button class="ai-chip" data-question="Que produtos você busca?">Produtos que procuro</button>
+            <button class="ai-chip" data-question="Quero uma indicação para meu tom de pele">Tom de pele</button>
+            <button class="ai-chip" data-question="Quero uma indicação para meu tipo de cabelo">Tipo de cabelo</button>
+            <button class="ai-chip" data-question="Como comprar com segurança?">Comprar com segurança</button>
+            </div>
+          </div>
+          <form class="ai-chat-input-area" id="aiChatForm">
+            <input id="aiChatInput" type="text" placeholder="Ex.: produto para pele oleosa..." autocomplete="off" aria-label="Digite sua pergunta" />
+            <button type="submit" class="ai-send-btn" aria-label="Enviar pergunta">
+              <i data-lucide="send"></i>
+            </button>
+          </form>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+
+  <!-- Script externo limpo -->
+  <script src="javascript/verificador.js"></script>
+  <script src="javascript/ai-chat.js"></script>
+  <script src="javascript/menu.js"></script>
+</body>
+</html>
